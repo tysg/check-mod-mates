@@ -9,9 +9,9 @@ def get_token():
 	except FileNotFoundError:
 		key = input("Key in your LAPI Key: ")
 		print("Log in and copy your token from " + "https://ivle.nus.edu.sg/api/login/?apikey=%s" % key + "\n")
+
 		token = input("Key in your LAPI token: ")
 		token_comb = (key, token)
-
 		with open("./token.pkl", "wb") as f:
 				pickle.dump(token_comb, f)
 		return token_comb
@@ -67,7 +67,10 @@ list_of_id = list(map(lambda course: course['ID'], clear_up_module(module_conten
 list_of_codes = list(map(lambda course: course['Code'], clear_up_module(module_content)))
 
 # determine which mods to check
-print("Your current modules: \n" + str(list_of_codes) + "\n")
+print("Your current modules: \n")
+for i in range(len(list_of_codes)):
+	print(str(i) + ": " + list_of_codes[i])
+print("\n")
 choice = input("Key in the index numbers of the mods that you wish to check, seperated by space: \n")
 
 def select_mods(mod_list, choice):
