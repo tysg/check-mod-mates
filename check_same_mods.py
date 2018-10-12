@@ -7,10 +7,10 @@ def get_token():
 	try:
 		return read_from_file("./token.pkl")
 	except FileNotFoundError:
-		key = input("Key in your LAPI Key: ")
+		key = input("Paste your LAPI Key: ")
 		print("Log in and copy your token from " + "https://ivle.nus.edu.sg/api/login/?apikey=%s" % key + "\n")
 
-		token = input("Key in your LAPI token: ")
+		token = input("Paste your LAPI token: ")
 		token_comb = (key, token)
 		with open("./token.pkl", "wb") as f:
 				pickle.dump(token_comb, f)
@@ -82,6 +82,7 @@ def select_mods(mod_list, choice):
 choice_of_codes = select_mods(list_of_codes, choice)
 choice_of_id = select_mods(list_of_id, choice)
 
+print("\n")
 print("Your choice of modules: \n" + str(choice_of_codes) + "\n")
 
 # getting the namelists of mods of choice
