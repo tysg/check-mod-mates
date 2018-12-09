@@ -24,7 +24,6 @@ def get_and_save(api_get, filename):
     pickle.dump(r.json(), f)
     f.close()
 
-
 def read_from_file(filename):
     # return the content from the file
     with open(filename, "rb") as f:
@@ -93,7 +92,6 @@ def find_intersection(choice_of_id):
 	result = set(namelist_of_index(0))
 	for i in range(1, len(choice_of_id)):
 		result.intersection_update(namelist_of_index(i))
-	return print("Your course mates are: \n" + str(result))
+	return result
 
-find_intersection(choice_of_id)
-
+print("Your course mates are: \n" + str(find_intersection(choice_of_id)))
