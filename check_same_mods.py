@@ -7,7 +7,7 @@ def get_token():
 	try:
 		return read_from_file("./token.pkl")
 	except FileNotFoundError:
-		key = input("Paste your LAPI Key: ")
+		key = "EKCnWpNMgPfzGr9psFhqq" 
 		print("Log in and copy your token from " + "https://ivle.nus.edu.sg/api/login/?apikey=%s" % key + "\n")
 
 		token = input("Paste your LAPI token: ")
